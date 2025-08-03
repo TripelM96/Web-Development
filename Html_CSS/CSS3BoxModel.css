@@ -1,0 +1,122 @@
+/*
+box model -propriedades
+    margin
+    border
+    padding
+    width
+    height
+
+    overflow
+    outline
+    box-sizing
+    ...
+*/
+
+/*
+Por omissaão todos os parágrafos (<p>) têm associado um user agent stylsheet com os seguintes valores
+
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+
+    que afetam o espaço entre parágrafos
+*/
+
+/*
+    MARGIN - espaço entre elementos
+
+    margin-shorthand
+    margin-top
+    margin-right
+    margin-Bottom
+    margin-left
+*/
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*
+    BORDER
+  Border-shorthand
+  Border-top
+  Border-right
+  Border- Bottom
+  Border-left
+*/
+
+p {
+    /*border: with style coler*/
+    /* border: 1px solid black; */
+
+    /* border: 1px dotted red;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: chartreuse; */
+
+    /* border-top: 1px dotted red; */
+    /* border-top-width: 3px;*/
+    border-top-style: double;
+    border-color: red; 
+
+}
+
+/*
+    PADDING - espaço entre o contéudo de elemnto e a respectiva border
+
+  padding-shorthand
+  padding-top
+  padding-right
+  padding-Bottom
+  padding-left
+*/
+
+p {
+    /* padding: 20px;
+    padding-top: 20px;
+
+    padding: top right bottom left; */
+    /* padding: 20px 0 0 0; */
+
+    padding: top/bottom right/left;
+    padding: 20px 10px;
+
+}
+
+/*
+
+with e height
+*/
+p {
+    width: 600px;
+}
+
+
+
+/*
+    todos os elementos HTML são divididos em dois tipos de layout:
+
+    block - p, table, form, h1, ...
+        ocupam toda a largura do browser/página
+        obrigam o elemento seguinte a ser mostrado na 
+        "linha" seguinte
+
+    inline - a, img, input, ...
+        ocupam apneas os espaço necessario para mostrar
+        o respectivo contéudo
+        podem estar numa linha com mais elementos 
+
+    inline-block
+        podem estar numa linha com mais elementos
+        pode-se aplicar margin top/bottom
+*/
+
+.linkDestaque {
+    /*como é um link é um elemnto do tipo inline, só aplica margin right*/
+    margin: 20px;
+    /* o padding top e bottom são aplicados mas nao afetam o layout - sobrepoêm-se ao elemento anterior e ao elemento posterior, veticalmente*/
+    padding: 20px;
+    border: 1px solid blue;
+
+    display: inline-block;
+    /*display: block*/
+}

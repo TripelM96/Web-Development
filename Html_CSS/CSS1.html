@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos de texto em HTML</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap" rel="stylesheet"> -->
+
+    <style>
+        /* lista de todos os estilos CSS que podem ser aplicados apenas nesta página*/
+        /*
+        Sintaxe: 
+        selector
+        {
+        propriedade1: valor;
+        propriedade2: valor;
+        ...
+        }
+        */
+        @font-face {
+            font-family: "Bitcount";
+            src: url('fontes/Bitcount/Bitcount-VariableFont_CRSV\,ELSH\,ELXP\,slnt\,wght.ttf');
+        }
+
+        /*tag selector*/
+        body {
+            /*font-family: 'Times New Roman', Times, serif;*/
+            /*font stack*/
+            /*font-family: Arial, Helvetica, sans-serif;*/
+            /*font-family: 'Comic Sans', cursive;*/
+            /*monospace font*/
+            /*font-family: 'Courier New', Courier, monospace;*/
+            /*utilizar uma fonte do google Fonts*/
+            /*font-family: "Bitcount", system-ui;*/
+            /*sytem-ui - por omissão */
+            font-family: "Bitcount", system-ui;
+        }
+
+        p {
+            font-size: 24px;
+            /* px - pixeis */
+            color: red;
+        }
+
+        h3 {
+            letter-spacing: 0.5em;
+        }
+
+        /* class selector */
+        .destaque {
+            background-color: cyan;
+        }
+
+        .outroDestaque {
+            font-style: italic;
+        }
+
+        #especial {
+            line-height: 2.5em;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Headings - caçalhos -->
+    <!--h1..h6 -->
+
+    <h1>Cegid</h1>
+    <h2> Cursos Formação</h2>
+    <!-- class - seletor com ponto final -->
+    <p class="destaque outroDestaque">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolore esse tempore ut totam magnam
+        consequuntur autem officiis aliquam placeat dolorum, doloremque natus corporis minima vitae distinctio incidunt
+        ea facilis!
+        Recusandae quisquam incidunt eaque animi id sit sint nihil esse hic reiciendis voluptatum fugiat saepe
+        doloremque est consectetur asperiores minima quasi, pariatur veniam fuga doloribus quia nam minus temporibus?
+        Ullam.
+    </p>
+    <h3>Programação C#</h3>
+    <!-- id - sletor com cardinal -->
+    <p id="especial">  
+        Eum et voluptates velit architecto debitis ducimus suscipit tenetur unde repellendus magni, assumenda pariatur
+        dicta
+        nulla laboriosam quos corporis, labore officiis reprehenderit nostrum animi veritatis laborum quas hic porro?
+        Ratione?
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, animi. Atque itaque ratione debitis modi omnis
+        officiis consectetur officia quos accusantium, non, harum fuga aliquam! Nisi consequatur nam et laudantium!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet sint recusandae suscipit, temporibus, quasi harum odit quo est, possimus deserunt repudiandae pariatur hic consectetur vitae delectus ipsum dicta quam vero</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facere sunt, quod debitis a natus officia consequatur ea illo sequi hic vitae quis. Iste quod temporibus repudiandae velit, soluta culpa?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat itaque impedit, soluta natus, unde voluptatem aspernatur reiciendis porro inventore error nobis sapiente eligendi necessitatibus commodi dolores sunt aliquam doloribus quidem.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda aut officia vitae modi, sed qui dolore laborum cum placeat. Numquam ad ea eligendi quidem totam, quam dolore recusandae quisquam iste.
+    At nostrum dolorum adipisci dolores dolor reprehenderit minima. Nostrum iusto temporibus corporis consectetur minus necessitatibus numquam animi natus ipsam, obcaecati ad sunt, inventore eveniet nesciunt perspiciatis quo veniam expedita. Nostrum!</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam odit quisquam officia voluptatibus voluptate nobis rem est, sunt aliquam, modi minima delectus ducimus dignissimos harum deleniti laboriosam earum dicta eius?
+    Officia ex sapiente saepe consequatur sequi nisi, ducimus exercitationem delectus excepturi quasi harum necessitatibus voluptate nam similique laudantium optio neque hic ipsa distinctio odit velit. Ipsum eveniet sed debitis veritatis.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia quaerat, quos ipsa quia esse deserunt iure, adipisci, laboriosam incidunt eaque sunt blanditiis unde accusamus aspernatur quae expedita. Iure, at natus?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic aut repellat fugiat molestiae quidem officia, laborum earum perspiciatis. Officia iure aut blanditiis tempore ducimus, aliquam minus sunt voluptatum error debitis?</p>
+    <h3 class="destaque">Formandos</h3>
+    <!-- type - é um atributo - valores possiveis - "disc" (default), "circle" e "square"-->
+
+    <ul type="square">
+        <!-- li - list items -->
+        <li>Martim Carvalho</li>
+        <li>Ana Pereira</li>
+        <li>Wilson Andre</li>
+    </ul>
+    <h3>Asssuntos abordados</h3>
+    <!-- ol ordered list -->
+    <ol type="a">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+    <h4>Web Devopement</h4>
+    <p>
+        Temporibus, dolores? Eaque porro voluptas vel, eos praesentium vitae voluptates at aliquam voluptate ipsum sunt
+        facilis doloribus consectetur mollitia minus nesciunt neque adipisci dolore tempora! Iusto voluptate quia
+        incidunt
+        non!
+        Dignissimos vel, nihil doloribus ad qui pariatur excepturi at accusantium asperiores! Perspiciatis libero nihil
+        dolore nesciunt fuga vero consequuntur eligendi odio consectetur. Aspernatur quas, quos soluta vitae eius sequi
+        asperiores.
+    </p>
+    <p>Olá pessoal</p>
+</body>
+
+</html>

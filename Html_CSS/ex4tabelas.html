@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas HTML</title>
+</head>
+
+<body>
+    <!-- o atributo border, cellspacing, cellpadding não deve ser utilizado em HTML - deve-se utilizar CSS -->
+    <table border="1" cellspacing="0" cellpadding="10">
+        <!-- o atributo align nao deve ser utilizado em HTML - Utilizar CSS -->
+        <caption align="bottom"><strong>Tabela 1</strong> - Lista de formandos</caption>
+        <thead>
+            <!-- NÃO utilizar bgcolor (background color) - utilizar CSS  -->
+            <tr bgcolor="grey">
+                <!-- th - table header - o texto aparece o negrito e centrado -->
+                <!-- tr>th*3 - mesmo efeito -->
+                <!-- th - table header -->
+                <th>Nome</th>
+                <th>Localidade</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- tr - table row -->
+            <tr>
+                <!-- td - table data -->
+                <td rowspan="2">Sandra</td>
+                <td>Gaia</td>
+                <td rowspan="2">43</td>
+            </tr>
+            <tr>
+                <td>Amesterdão</td>
+            </tr>
+            <tr>
+                <td>Morgado</td>
+                <td>Barca</td>
+                <td>29</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total de formandos: 2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>

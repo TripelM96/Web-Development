@@ -1,0 +1,41 @@
+/* table{
+    border: 1px solid black;
+
+}
+td{
+    border: 1px solid black;
+}
+tr{
+    border: 1px solid black;
+
+} */
+
+table, td, th{
+    border: 1px solid black;
+
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td, th{
+    padding: 10px 20px;
+}
+
+/* th */
+/*espaço - descendant selector*/
+/* thead tr{
+    background-color: grey;
+} */
+
+/* > - child selector*/
+thead > tr, tfoot> tr  {
+    background-color: grey;
+    color: white;
+}
+
+.tabelaDados caption{
+    caption-side: bottom;
+    margin-top: 10px;
+}
