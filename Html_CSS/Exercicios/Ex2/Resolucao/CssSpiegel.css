@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(230, 239, 237);
+
+  max-width: 1060px;
+}
+p {
+  line-height: 1.5;
+}
+header{
+  height: 80px;
+  background-color: rgb(230, 68, 21);
+  margin-left: 50px;
+}
+
+section{
+    text-align: center;
+    background-color: white ;
+}

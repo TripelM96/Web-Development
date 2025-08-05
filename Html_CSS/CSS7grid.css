@@ -1,0 +1,91 @@
+#artes {
+  display: grid;
+  /* grid-template-columns: 33.33% 33.33% 33.33% ; */
+  /* grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3) ; */
+  /* grid-template-columns: 1fr 1fr 1fr ; */
+  /* grid-template-columns: 1fr 2fr 1fr; */
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+}
+
+#musicas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+}
+
+#musicas > section {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+#desporto {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-top: 20px;
+}
+
+#desporto > section {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+#desporto > section:nth-child(1) {
+  /* background-color: blue; */
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+#desporto > section:nth-child(2) {
+  /* background-color: blue; */
+  /* grid-column-start: 2;
+    grid-column-end: 4; */
+  grid-column: span 2;
+}
+
+#desporto > section:nth-child(3) {
+  /* background-color: blue; */
+  grid-row: span 2;
+  /* grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-start: 3; */
+}
+
+#desporto > section:nth-child(4) {
+  /* background-color: blue; */
+  grid-column: span 2;
+}
+#desporto > section:nth-child(5) {
+  /* background-color: blue; */
+  grid-column: span 1;
+}
+
+#desporto2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "a b b c"
+    "d d e c";
+  margin-top: 20px;
+}
+#desporto2 > section {
+  border: 1px solid #000;
+}
+#desporto2 > section:nth-child(1) {
+  grid-area: a;
+}
+#desporto2 > section:nth-child(2) {
+  grid-area: b;
+}
+#desporto2 > section:nth-child(3) {
+  grid-area: c;
+}
+#desporto2 > section:nth-child(4) {
+  grid-area: d;
+}
+#desporto2 > section:nth-child(5) {
+  grid-area: e;
+}

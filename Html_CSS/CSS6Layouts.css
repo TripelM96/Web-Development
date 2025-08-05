@@ -78,3 +78,28 @@ Secção Internacional
   padding: 20px;
   gap: 10px;
 }
+
+/*================================
+Secção Internacional
+==================================*/
+#artes{
+  display: flex;
+  column-gap: 30px;
+}
+
+#artes > section{
+box-sizing: border-box;
+}
+
+/* #artes > :first-child, #artes > :last-child{ */
+#artes > :nth-child(1), #artes > :nth-child(3){
+  /* background-color: red; */
+  /* width: 25%; */
+  flex: 1;
+}
+
+#artes > :nth-child(2){
+  /* background-color: blue; */
+  /* width: 50%; */
+  flex: 2;
+}
