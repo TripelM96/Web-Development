@@ -1,0 +1,80 @@
+/*================================
+Estilos Genericos
+==================================*/
+/* "*" - seletor unviversal*/
+
+body {
+  max-width: 1200px;
+  /*por omissão o elementobody tem 8px de margin a toda a volta  */
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+p {
+  text-align: center;
+}
+/*================================
+Menu Principal
+==================================*/
+
+/* #menuPrincipal ul */
+#menuPrincipal > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+/* #menuPrincipal > ul > li */
+#menuPrincipal li {
+  display: inline-block;
+}
+
+/* #menuPrincipal > ul > li > a */
+#menuPrincipal a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+#menuPrincipal a:hover {
+  color: white;
+  background-color: red;
+}
+/*
+pseudo-classes que podemos associar a um link
+
+:link - link não visitado
+:visited - link sisitado
+:hover - rato por cima
+:active - rato por cima a clicar no botão
+:focus - quando o link está "selecionado"
+
+*/
+
+/*================================
+Secção Internacional
+==================================*/
+
+#internacional {
+  display: flex;
+  /*por omissão, o valor da propriedade "align-items" é strech*/
+  /* align-items: flex-start; */
+  /*Para poder ter mais de uma linha de layout com flexbox*/
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#internacional > section {
+  box-sizing: border-box;
+  /*layout de 3 colunas*/
+  /* width: 33.33%; */
+  /* width: 50%; */
+  /* width: cal(50% - 40% - 2px); */
+  /*flex 1;*/
+  /* flex: flex-grow flex-shrink flex-basics; */
+  flex: 0 1 calc(50% - 10px);
+  border: 1px solid black;
+  padding: 20px;
+  gap: 10px;
+}
