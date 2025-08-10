@@ -1,0 +1,87 @@
+/* RWD - Responsive Web Design */
+/* 
+
+3 pilares/conceitos:
+
+- flexible layouts - utilizar % e em/rems
+- flexible media (imagens, videos, ...) - utilizar % e em/rems
+- media queries (media types)
+
+Como criar um site responsivo:
+    - mobile first (começar a criar/desenhar/implementar o site a partir da versão para mobile/telemóvel que é a versão mais simples)
+    - desktop first (comoçar pela versão mais sofisticada/complexa)
+
+Media queries
+    Breakpoints - resoluções típicas
+        Smartphones - <= 480px/560px (portrait)
+        Tablets - 768px (iPad) / 800px (Android) (portrait)
+        notebooks - 1200px/1368px/1920px (landscape)
+        desktops - 1600px/1920px/3840px (4K)
+*/
+
+/* desktop first */
+/* #artes {
+    display: flex;
+    column-gap: 30px;
+}
+#artes > section {
+    flex: 1;
+} */
+
+@media only screen and (max-width: 480px) {
+    #artes {
+        /* display: flex; */
+        /* flex-direction: column; */
+    }
+    /* #artes > section {
+        flex: 1;
+    } */
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    background-color: cyan;
+}
+
+/* .foto {
+    display: none;
+} */
+
+/* mobile first */
+@media only screen and (max-width: 480px) {
+    .foto {
+        display: none;
+    }
+}
+
+/* media query */
+/* @media only screen and (min-width: 480px) { */
+@media (min-width: 480px) {
+    #artes {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    #artes > section {
+        /* box-sizing: border-box; */
+        flex: 1 1 calc(50% - 15px);
+    }
+    /* .foto {
+        display: inline-block;
+    } */
+}
+@media (min-width: 801px) {
+    /* #artes {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    } */
+    #artes > section {
+        flex: 1;
+    }
+}
+
+/* Em tablets, deve aparecer uma linha com 2 colunas e depois uma linha com apenas 1 coluna */

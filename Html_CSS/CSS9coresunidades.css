@@ -1,0 +1,93 @@
+/* html { */
+:root {
+    /* tamanho base - por omissão 16px */
+    font-size: 24px;
+}
+.exemplo {
+    font-weight: bold;
+    font-size: 24px;
+    /* 147 nomes de cores */
+    /* 15+1 cores originais (fuchsia) */
+    /* color: cornflowerblue; */
+    /* hexadecimal */
+    /* color: rrggbb  (r-red,g-green,b-blue)*/
+    /* color: rgb */
+    /* branco */
+    /* color: #FFFFFF; */
+    /* color: #ffffff; */
+    /* color: #FFF; */
+    /* color: #fff; */
+    /* amarelo */
+    /* color: #FFFF00; */
+    /* preto */
+    /* color: #000000; */
+    /* cinzento */
+    /* color: #666666; */
+    /* color: #e41286; */
+
+    /* color: rgb(red,green,blue)
+    color: rgb(0-255,0-255,0-255) */
+    /* color: rgb(228, 18, 134); */
+    /* color: rgb(80%,2%,50%); */
+
+    /* transparência */
+    /* color: rgba(red,green,blue,alpha channel)
+    color: rgba(0-255,0-255,0-255,0-1) */
+    /* color: rgba(80%,2%,50%,0.5); */
+
+    /* hsl - hue, saturation, lightness */
+    /* color: hsl(0-360,0-100%,0-100%) */
+    /* color: hsl(50deg,50%,50%); */
+    /* color: hsla(50deg,50%,50%,0.4); */
+
+    /* transparent */
+    /* color: transparent; */
+
+    /* opacidade */
+    opacity: 0.65;
+}
+
+/* Unidades */
+/*
+    absolutas
+        px - pixels
+        pt - points (papel)
+        cm - centimeters
+        mm - millimeters
+        pc - picas
+        in - inches
+
+    relativas
+        % - layouts
+        em - texto
+        rems - root ems - texto
+        ex
+        vw - viewport width
+        vh - vieport height
+        vmin
+        vmax
+        ch
+
+*/
+.especial {
+    /* por omissão */
+    /* 16px = 1em = 1rem = 100% */
+    /* font-size: 16px; */
+    /* o mesmo que font-size: 48px; */
+    font-size: 2rem;
+}
+
+#container {
+    /* 24px x 2 = 48px */
+    font-size: 2em;
+}
+#container p {
+    /* 24px x 2 (div) x 2 = 96px */
+    font-size: 2em;
+}
+#container > p > span {
+    /* 24px x 2 (div) x 2 (p) x 2 = 192px */
+    /* font-size: 2em; */
+    /* 24px (:root) x 2 = 48px */
+    font-size: 2rem;
+}

@@ -7,13 +7,13 @@ body {
 p {
   line-height: 1.5;
 }
-header{
+.classHeader{
   height: 80px;
   background-color: rgb(230, 68, 21);
   margin-left: 50px;
 }
 
-section{
-    text-align: center;
+.pageSection{
+    align-content: center;
     background-color: white ;
 }
