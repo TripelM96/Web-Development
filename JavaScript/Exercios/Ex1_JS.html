@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        console.log("Números:");
+        let fiveNumbers = [];
+
+        while (fiveNumbers.length < 5) {
+            let number = getRandomInt(1, 51);
+            if (!fiveNumbers.includes(number)) {
+                fiveNumbers.push(number);
+            }
+        }
+        console.log(fiveNumbers);
+        console.log("Estrelinhas:");
+
+        let twoStars = [];
+
+        while (twoStars.length < 2) {
+            let number = getRandomInt(1, 13);
+            if (!twoStars.includes(number)) {
+                twoStars.push(number);
+            }
+        }
+        console.log(twoStars);
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

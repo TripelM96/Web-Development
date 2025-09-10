@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções em JavaScript</title>
+</head>
+<body>   
+    
+    <script>
+        // function declarations
+        function somar(a,b) {
+            return a+b;
+        }
+        // let resultado=somar(4,8);
+        console.log(somar(4,8)); // 12
+
+        // function expressions
+        let somar2=function(a,b) {
+            return a+b;
+        }
+        // let resultado=somar2(4,8);
+        console.log(somar2(4,8)); // 12
+
+        // método que ninguém usa
+        let somar3=new Function('a,b','return a+b');
+        // let resultado=somar3(4,8);
+        console.log(somar3(4,8)); // 12
+
+        // scope
+        // variável global - esta variável fica disponível em qualquer parte do código (ficheiro)
+        let nome="Pedro Remoaldo";
+        function mostra() {
+            console.log(nome); // Pedro Remoaldo
+        }
+        mostra();
+
+        // variável local - este tipo de variável só está disponível dentro da função/classe em que é definida
+        function mostra1() {
+            let nome="Luísa Todi";
+            console.log(nome); // "Luísa Todi"
+            let idade=34;
+        }
+        mostra1();
+        console.log(nome); // Pedro Remoaldo
+        // console.log(idade); // Uncaught ReferenceError: idade is not defined
+
+        // Block scope
+        // as variáveis definidas dentro de um bloco ({}) apenas estão disponíveis dentro desse bloco, quando definidas com "let"
+        for (let i=0; i<10; i++) { 
+            // .. 
+        }
+        console.log(i); // Uncaught ReferenceError: i is not defined
+
+        for (var i=0; i<10; i++) { 
+            // .. 
+        }
+        console.log(i); // 10
+
+        // alternativa ao var utilizando let
+        let j=0;
+        for (; j<10; j++) { 
+            // ..
+        }
+        console.log(j); // 10
+
+        if (j===10) {
+            let resposta="Sim";
+        } else {
+            let resposta="Não";
+        }
+        // console.log(resposta); // Uncaught ReferenceError: resposta is not defined
+
+        let resposta="";
+        if (j===10) {
+            resposta="Sim";
+        } else {
+            resposta="Não";
+        }
+        console.log(resposta); // Sim
+
+        // valores por omissão
+        // function somar4(a,b=0) {
+        function somar4(a,b) {
+            // if (b===undefined) {
+            //     b=0;
+            // }
+            // ternary operator
+            // b = (b===undefined) ? 0 : b;
+            // arguments - é um array-like que contém todos os argumentos passados para a função
+            // if (arguments.length!==2) {
+            //     b=0;
+            // }
+            b = b | 0;
+            console.log(a+b);
+        }
+        somar4(4,8); // 12
+        somar4(4); // 4
+
+        // arrow functions
+        // function declaration
+        // function somar(a,b) {
+        //     return a+b;
+        // }
+        // a mesma declaração utilizando uma arrow function
+        let somar5=(a,b) => a+b;
+
+        let quadrado= a => a*a;
+        // let quadrado2= (a) => a*a;
+        // let quadrado2= (a) => Math.pow(a,2);
+        let quadrado2= (a) => a**2;
+        console.log(quadrado2(4)); // 16
+
+        let mostra2=() => {
+            let teste="adasdads";
+            teste+="qwqwe";
+            return teste;
+        }
+        console.log(mostra2()); // "adasdadsqwqwe"
+
+    </script>
+</body>
+</html>

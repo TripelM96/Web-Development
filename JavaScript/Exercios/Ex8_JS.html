@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex8_JS</title>
+</head>
+
+<body>
+    <script>
+        let valor1 = ""; // false
+        let valor2 = "Primavera"; // false
+        let valor3 = "Be"; // false;
+        let valor4 = "Amesterdão"; // true
+        let valor5 = "Benin"; // true
+
+        function verify(string) {
+
+            if (string === "") {
+                return false;
+            }
+            else if (string.length < 3) {
+                return false;
+            }
+            else if (string.startsWith('B') === true) {
+                return true;
+            }
+            else if (string.startsWith('A') === true) {
+                return true
+            }
+            return false;
+        }
+        console.log(verify(valor1));
+        console.log(verify(valor2));
+        console.log(verify(valor3));
+        console.log(verify(valor4));
+        console.log(verify(valor5));
+
+
+    </script>
+</body>
+
+</html>

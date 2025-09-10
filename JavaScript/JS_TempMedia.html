@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_TempMedia</title>
+</head>
+
+<body>
+    <script>
+        let temperaturas = [12, 8, 23, 4, 31, 35, -4, -10, 17]
+
+        let tempMax=temperaturas[0]; // -Infinity
+        let tempMin=temperaturas[0]; // +Infinity
+        let total=0;
+        for (let i = 0; i < temperaturas.length; i++) {
+
+            if(temperaturas[i] > tempMax)
+                tempMax=temperaturas[i]
+            if(temperaturas[i] > tempMin)
+                tempMin=temperaturas[i]
+            total+=temperaturas[i];
+        }
+        let tempMedia = total/temperaturas.length;
+        console.log(tempMax);
+        console.log(tempMin);
+        console.log(tempMedia);
+
+        // Versão 2
+
+        let tempMin2 = Math.min(...temperaturas);
+        let tempMax2 = Math.max(...temperaturas);
+        let total2 = 0;
+        for(let i=0; i < temperaturas.length; i++)
+        {
+            total2+=temperaturas[i];
+        }
+        let tempMedia2=total/temperaturas.length;
+        console.log(tempMax2);
+        console.log(tempMin2);
+        console.log(tempMedia2);
+        
+        // versão 3
+        // a ordenação por omissão utilizada no método sort é efectuada pelo código ASCII/Unicode
+        let tempOrdenadas=[...temperaturas].sort();
+        console.log(tempOrdenadas); // [-10, -4, 12, 17, 23, 31, 35, 4, 8]
+
+        let tempOrdenadas2=[...temperaturas].sort(function(a,b) {
+            if (a<b) {
+                return -1;
+            }
+            if (a>b) {
+                return 1;
+            }
+        });
+        console.log(tempOrdenadas2); // [-10, -4, 4, 8, 12, 17, 23, 31, 35]
+        // ordenar por ordem ascendente
+        let tempOrdenadas3=[...temperaturas].sort((a,b) => a-b);
+        console.log(tempOrdenadas3);
+        // ordenar por ordem descendente
+        // let tempOrdenadas3=[...temperaturas].sort((a,b) => b-a);
+        // let tempOrdenadas3=[...temperaturas].sort((a,b) => a-b).reverse();
+        let tempMin3=tempOrdenadas3[0];
+        let tempMax3=tempOrdenadas3[tempOrdenadas3.length-1];
+        let total3=0;
+        for (let i=0; i<temperaturas.length; i++) {
+            total2+=temperaturas[i];
+        }
+        let tempMedia3=total3/temperaturas.length;
+        console.log(tempMin3);
+        console.log(tempMax3);
+        console.log(tempMedia3);
+    </script>
+</body>
+
+</html>

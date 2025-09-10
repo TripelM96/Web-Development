@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <script>
+        /*
+        Identificar a maior palavra existente numa frase e o respectivo número de caracteres.
+
+        Para a seguinte string,
+
+        let frase="Exemplo de uma frase com palavras";
+
+        o resultado deve ser:
+
+        "palavras" - 8 letras
+
+        Podem utilizar métodos de strings de JavaScript.
+        */
+
+        let frase="Exemplo de uma frase com palavras";
+
+        // let palavras=frase.split(" ");
+        // percorrer o array
+        let palavras=[];
+        let posInicio=0;
+        let pos=0;
+        while (pos<frase.length) {
+            if (frase.charAt(pos)===" ") {
+                let palavra=frase.slice(posInicio,pos);
+                palavras.push(palavra);
+                posInicio=pos+1;
+            }
+            pos++;
+        }
+        let palavra=frase.slice(posInicio);
+        palavras.push(palavra);
+        console.log(palavras); // ['Exemplo', 'de', 'uma', 'frase', 'com', 'palavras'];
+        let palavraMaior="";
+        for (let palavra of palavras) {
+            if (palavra.length>palavraMaior.length) {
+                palavraMaior=palavra;
+            }
+        }
+        console.log(`${palavraMaior} - ${palavraMaior.length} letras`);
+    </script>
+</body>
+</html>

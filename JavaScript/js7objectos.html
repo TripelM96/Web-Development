@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectos em JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        // literal object - em outras linguagens de programação chama-se aray associativo, dictionary, hash map, ...
+        // lista de pares chave: valor (key: value)
+        let pessoa = {
+            nome: "Pedro Remoaldo",
+            cidade: "Porto",
+            pais: "Portugal"
+        }
+        // dot notation
+        console.log(pessoa.nome); // Pedro Remoaldo
+        // array notation
+        console.log(pessoa["nome"]);
+        let propriedade="cidade";
+        // console.log(pessoa.propriedade); // Uncaught ReferenceError: cidade is not defined
+        console.log(pessoa[propriedade]); // Porto
+
+        let outrapessoa= {
+            nome: "Pedro Remoaldo",
+            morada: {
+                rua: "Rua das Tílias, 34",
+                localidade: "Porto",
+                cp: "4100-123",
+                pais: "Portugal"
+            },
+            contactos: {
+                email: "premoaldo@gmail.com",
+                telefones: [ 223456789, 912323456 ]
+                // telefones: {
+                //     fixo: 223456789,
+                //     movel: [ 912323456, 934567891 ]
+                // }
+            }
+        }
+        console.log(outrapessoa.nome); // Pedro Remoaldo
+        console.log(outrapessoa.morada.pais); // Portugal
+        console.log(outrapessoa.contactos.telefones[1]); // 912323456
+
+        // arrays de objectos
+        let pessoas=[
+            {
+                id: 1,
+                nome: "Wilson André",
+                cidade: "Braga"
+            },
+            {
+                id: 2,
+                nome: "Cristiano Silva",
+                cidade: "Braga"
+            },
+            {
+                id: 3,
+                nome: "Martim Carvalho",
+                cidade: "Porto"
+            },
+            {
+                id: 4,
+                nome: "Ana Ferreira",
+                cidade: "Torres Novas"
+            }
+        ]
+
+        // listar o nome de cada pessoa
+        for(let i=0; i<pessoas.length; i++) {
+            console.log(pessoas[i].nome);
+        }
+        for(let pessoa of pessoas) {
+            console.log(pessoa.nome);
+        }
+        pessoas.forEach(pessoa => console.log(pessoa.nome));
+
+        // mostrar apenas as pessoas que vivem em Braga
+        for(let pessoa of pessoas) {
+            if (pessoa.cidade==="Braga") {
+                console.log(pessoa);
+            }
+        }
+
+        // criar um array (de ojectos) com toda a informação das pessoas que vivem em Braga
+        let pessoasBraga=[];
+        for(let pessoa of pessoas) {
+            if (pessoa.cidade==="Braga") {
+                pessoasBraga.push(pessoa);
+            }
+        }
+        console.log(pessoasBraga); // [ { nome: "Wilson..." }, { nome: "Cristiano... "}]
+        
+        let pessoasBraga2=pessoas.filter(pessoa => pessoa.cidade==="Braga");
+        console.log(pessoasBraga2); // [ { nome: "Wilson..." }, { nome: "Cristiano... "}]
+
+        let pessoasLisboa=pessoas.filter(pessoa => pessoa.cidade==="Lisboa");
+        console.log(pessoasLisboa); // []
+
+        // mostrar o nome das pessoas que existem em Braga, mas em maiúsculas
+        for(let pessoa of pessoas) {
+            if (pessoa.cidade==="Braga") {
+                console.log(pessoa.nome.toUpperCase());
+            }
+        }
+
+        // criar um array com a informação das pessoas que vivem em Braga, mas apresentar o nome em maiúscular
+        let pessoasBraga3=[];
+        for(let pessoa of pessoas) {
+            if (pessoa.cidade==="Braga") {
+                // pessoasBraga3.push(pessoa);
+                /*
+                    {
+                        id: 1,
+                        nome: "Wilson André",
+                        cidade: "Braga"
+                    }
+                */
+                /*                 
+                let tempPessoa = {
+                    id: pessoa.id,
+                    nome: pessoa.nome.toUpperCase(),
+                    cidade: pessoa.cidade
+                }
+                pessoasBraga3.push(tempPessoa); */
+                pessoasBraga3.push({
+                    ...pessoa,
+                    // id: pessoa.id,
+                    // nome: pessoa.nome,
+                    // cidade: pessoa.cidade,
+                    nome: pessoa.nome.toUpperCase(),
+                });
+            }
+        }
+        console.log(pessoasBraga3);
+
+        // chaining 2 métodos
+        let pessoasBraga4=pessoas
+            .filter(pessoa => pessoa.cidade==="Braga")
+            .map(pessoa => ({
+                ...pessoa,
+                nome: pessoa.nome.toUpperCase()
+            }));
+        console.log(pessoasBraga4);
+    </script>
+</body>
+</html>

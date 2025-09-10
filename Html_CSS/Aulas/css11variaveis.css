@@ -1,0 +1,15 @@
+@import url('reset.css');
+:root {
+    --cor-fundo: red;
+    --cor-texto: rgb(14, 230, 104);
+}
+
+.realce {
+    --cor-texto: yellow;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+.destaque {
+    color: var(--cor-texto);
+}

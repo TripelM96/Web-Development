@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números em JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        // Números - tipo de dados "number"
+
+        // inteiros
+        let idade=25;
+        // decimais
+        let preco=12.34;
+
+        // operadores aritméticos
+        // +, -, *, /, % (modulo/modulus - resto da divisão de inteiros)
+
+        let total=10;
+        // = - assignment operator
+        total=total+1; // 11
+        // shorthand operator
+        total+=1; // 12
+        // increment operator
+        total++; // 13
+        ++total; // 14
+        console.log(total);
+
+        // Cuidado
+        // let outro=++total;
+        // let outro=total++;
+
+        // para efectuar certo tipo de operações matemáticas utilizamos a library Math (objecto)
+        let valorAPagar=15.345;
+        // arredondar o valor - utiliza as regras habituais de arredondamento para inteiros
+        console.log(Math.round(valorAPagar)); // 15
+        // arredondar para cima
+        console.log(Math.ceil(valorAPagar)); // 16
+        // arredondar para baxio
+        console.log(Math.floor(valorAPagar)); // 15
+        // O resultado dos três anteriores métodos é sempre um número (inteiro)
+        console.log(typeof Math.floor(valorAPagar)); // number
+
+        // arredondar para um determinado número de casas decimais
+        // arredondar Euros (2 casas decimais)
+        let precoFinal=valorAPagar.toFixed(2);
+        console.log(precoFinal); // 15.35
+        console.log(typeof precoFinal); // string
+        
+        // converter entre tipos de dados
+        // converter para números (por exemplo, uma string)
+        // converter para um número inteiro
+        console.log(parseInt(precoFinal)); // 15
+        // converter para um número decimal/float
+        console.log(parseFloat(precoFinal)); // 15.35
+        // converter para número independentemente de ser inteiro ou decimal
+        console.log(Number(precoFinal)); // 15.35
+
+        console.log(parseInt("12px")); // 12
+        console.log(parseInt("12$x23")); // 12
+
+        // problema da soma de certos valores
+        let valor1=0.25;
+        let valor2=0.82;
+        let resultado=valor1+valor2;
+        console.log(resultado); // 1.0699999999999998
+        resultado=Number(resultado.toFixed(2));
+        console.log(resultado); // 1.07
+        // se tivermos números com apenas 1 ou 2 casas decimais
+        let resultado2=(valor1*100+valor2*100)/100;
+        console.log(resultado2); // 1.07
+
+        // NaN - not a number
+        // Em JavaScript nunca temos um erro resultante de cálculos numéricos
+        console.log(34/0); // Infinity
+        let cidade="Porto";
+        console.log(56/cidade); // NaN
+        // isNaN - is not a Number
+        if (isNaN(56/cidade)) {
+            console.log("ERRO");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings em JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        // é indiferente utilizar aspas (") ou apóstrofos (') em strings
+        let nome="Pedro Remoaldo";
+        let outroNome='Luísa Todi';
+
+        // se pretender utilizar um apóstrofo dentro de apóstrofos
+        // let nomeIrlandes='John O'Brien';
+        // para resolver este problema
+        let nomeIrlandes1="John O'Brien";
+        // \ - escaping - tira o significado especial do caracter seguinte
+        let nomeIrlandes2='John O\'Brien';
+        console.log(nomeIrlandes2); // John O'Brien
+
+        // como valor, podemos ter qualquer tipo de caracter numa string
+        let emoji = "😊";
+        console.log(emoji);
+        let caracter="愛";
+        console.log(caracter);
+
+        // concatenação de strings
+        let primeiroNome="Pedro";
+        let ultimoNome="Remoaldo";
+        // + - operador de concatenação
+        let nomeCompleto=primeiroNome+" "+ultimoNome;
+        console.log(nomeCompleto); // Pedro Remoaldo
+        let nomeCompleto2=primeiroNome.concat(" ",ultimoNome);
+        console.log(nomeCompleto2); // Pedro Remoaldo
+        // template string
+        // ` - backtick
+        let nomeCompleto3=`O nome completo é: ${primeiroNome} ${ultimoNome}.`;
+        console.log(nomeCompleto3); // O nome completo é: Pedro Remoaldo.
+
+        // problemas com a concatenação quando se misturam tipos de dados
+        let valor1=4;
+        let valor2=6;
+        let valor3="5";
+        console.log(valor1+valor2+valor3); // 105
+        console.log(valor3+valor1+valor2); // 546
+        console.log(Number(valor3)+Number(valor1)+Number(valor2)); // 15
+        console.log(Number("5Pedro")+Number(valor1)+Number(valor2)); // NaN
+
+        // funções/métodos que se aplicam a strings
+        console.log(nomeCompleto.toUpperCase()); // PEDRO REMOALDO
+        console.log(nomeCompleto.toLowerCase()); // pedro remoaldo
+
+        // calcular o número de caracteres de uma string
+        console.log(nomeCompleto.length); // 14
+
+        // extrair caracteres de uma string
+        // extrair o caractere numa determinada posição (0 based)
+        // para extrair o primeiro caractere
+        console.log(nomeCompleto.charAt(0)); "P"
+        // tratar uma string como um array-like
+        console.log(nomeCompleto[0]); "P"
+        // extrair o último caractere de uma string
+        console.log(nomeCompleto.charAt(nomeCompleto.length-1)); // "o"
+
+        // extrair uma sub-string
+        // substr - está deprecated
+        // substr(posição_inicial, número_caracteres)
+        console.log(nomeCompleto.substr(0,5)); // Pedro
+        console.log(nomeCompleto.substr(6)); // Remoaldo
+
+        // substring(posição_inicial, posição_final)
+        // posição_final não é incluída no resultado
+        console.log(nomeCompleto.substring(0,5)); // Pedro
+        console.log(nomeCompleto.substring(6,14)); // Remoaldo
+        console.log(nomeCompleto.substring(6,nomeCompleto.length)); // Remoaldo
+        console.log(nomeCompleto.substring(6)); // Remoaldo
+
+        // slice(posição_inicial, posição_final)
+        // posição_final não é incluída no resultado
+        console.log(nomeCompleto.slice(0,5)); // Pedro
+        console.log(nomeCompleto.slice(6)); // Remoaldo
+        // o slice admite parâmetros negativos - contam a partir do fim
+        console.log(nomeCompleto.slice(-8)); // Remoaldo
+
+        // testar a existência de um ou mais caracteres (sub-string) numa string
+        // indexOf - retorna a posição do caractere(s), ou -1 caso o caractere(s) não exista(m) na string
+        // é case-sensitive
+        console.log(nomeCompleto.indexOf('e')); // 1
+        console.log(nomeCompleto.indexOf('edr')); // 1
+        console.log(nomeCompleto.indexOf('t')); // -1
+        // utilizar o segundo parâmetro para definir a posição de início de pesquisa
+        console.log(nomeCompleto.indexOf('e',6)); // 7
+        
+        // lastIndexOf - pesquisar a partir do fim da string - retorna a posição contada a partir do início da string
+        console.log(nomeCompleto.lastIndexOf('e')); // 7
+        
+        // includes - determina se um ou mais carcateres (sub-string) existem numa string - retorna true ou false
+        console.log(nomeCompleto.includes('e')); // true
+        console.log(nomeCompleto.includes('edr')); // true
+        console.log(nomeCompleto.includes('t')); // false
+
+        // startsWith, endsWith
+
+        // Dado um nome, extrair o último nome
+        let nomeATestar="Pedro Almeida Remoaldo";
+        // let nomeATestar="Ana Ferreira";
+        // let ultimoEspaco=nomeATestar.lastIndexOf(" ");
+        // let valorUltimoNome=nomeATestar.slice(ultimoEspaco+1);
+        let valorUltimoNome=nomeATestar.slice(nomeATestar.lastIndexOf(" ")+1);
+        console.log(valorUltimoNome); // Remoaldo
+  
+        // trim - remover o whitespace (espaços, tabs e CR/LF/enter) do início e do fim de uma string
+        let stringComEspacos="    String    ";
+        console.log("#"+stringComEspacos.trim()+"#"); // String
+        // trimStart (ou trimLeft) e trimEnd (ou trimRight)
+
+        // pesquisar e substituir
+        // search - utilizado preferencialmente com expressões regulares
+        console.log(nomeCompleto.search('e')); // 1
+        let nome2="Pedro";
+        console.log(nome2.search(/^Pedro$/)); // 0
+        console.log(nomeCompleto.search(/Remo/)); // 6
+        console.log(nomeCompleto.search(/[Rr]emo/)); // 6
+
+        // replace - substituir caractere(s) - apenas substitui a primeira ocorrência
+        console.log(nomeCompleto.replace('e','#')); // P#dro Remoaldo
+        // replaceAll - substitui todas as ocorrências
+        console.log(nomeCompleto.replaceAll('e','#')); // P#dro R#moaldo
+        // substituir todas as ocorrências utilizando expressões regulares
+        // g - globalmente, isto é, em toda a string
+        console.log(nomeCompleto.replace(/[Ee]/g,'#')); // P#dro R#moaldo
+
+        // regular expressions
+        // /^[0-9]{4}-[0123456789]{3}$/
+
+        // percorrer strings
+        for (let pos=0; pos<nomeCompleto.length; pos++) {
+            console.log(nomeCompleto.charAt(pos));
+            // console.log(nomeCompleto[pos]);
+        }
+
+        // inverter a string
+        let nomeInvertido="";
+        for (let pos=nomeCompleto.length-1; pos>=0; pos--) {
+            // console.log(nomeCompleto.charAt(pos));
+            nomeInvertido+=nomeCompleto.charAt(pos);
+        }
+        console.log(nomeInvertido); // odlaomeR ordeP
+
+        console.log(nomeCompleto.split("").reverse().join(""));
+
+        // determinar se uma string é um palíndromo - a string lê-se da mesma forma da esquerda para a direita e vice-versa - ex: ana, ovo, sopapos
+        let stringATestar="sopapos";
+        let stringInvertida="";
+        for (let pos=stringATestar.length-1; pos>=0; pos--) {
+            stringInvertida+=stringATestar.charAt(pos);
+        }
+        if (stringInvertida===stringATestar) {
+            console.log(`A string ${stringATestar} é um palíndromo!`)
+        } else {
+            console.log(`A string ${stringATestar} NÃO é um palíndromo!`)
+        }
+
+        let esquerda=0;
+        let direita=stringATestar.length-1;
+        while(true) {
+            if (stringATestar.charAt(esquerda)!==stringATestar.charAt(direita)) {
+                break;
+            }
+            esquerda++;
+            direita--;
+            if (esquerda===direita) {
+                break;
+            }
+            if (direita<esquerda) {
+                break;
+            }
+            // console.log(direita);
+        }
+        if (esquerda===direita || direita<esquerda) {
+            console.log(`A string ${stringATestar} é um palíndromo!`)
+        } else {
+            console.log(`A string ${stringATestar} NÃO é um palíndromo!`)
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays em JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        // empty array - array vazio
+        // sintaxe antiga
+        // let cidades=new Array();
+        // let cidades=new Array('Porto', 'Lisboa', 'Viseu');
+        // sintaxe moderna - literal array
+        // let cidades=[];
+        let cidades=['Porto', 'Lisboa', 'Viseu'];
+
+        // console.log(cidades);
+        console.table(cidades);
+
+        // Mostrar um elemento do array
+        console.log(cidades[2]); // Viseu
+
+        // calcular o tamanho de um array - calcular o número de elementos de um array
+        let tamanhoArray=cidades.length;
+        console.log(tamanhoArray); // 3
+
+        // Acrescentar elementos a um array
+        cidades[3]="Coimbra";
+        console.log(cidades); // ['Porto', 'Lisboa', 'Viseu', 'Coimbra']
+        // acrescentar ao fim
+        cidades[cidades.length]="Guarda";
+        console.log(cidades); // ['Porto', 'Lisboa', 'Viseu', 'Coimbra', 'Guarda']
+        cidades.push("Faro");
+        console.log(cidades); // ['Porto', 'Lisboa', 'Viseu', 'Coimbra', 'Guarda', 'Faro']
+        cidades.push("Évora","Beja","Bragança");
+        console.log(cidades); // ['Porto', 'Lisboa', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja', 'Bragança']
+
+        // acrescentar/inserir no início
+        cidades.unshift("Leiria");
+        console.log(cidades); // ['Leiria', 'Porto', 'Lisboa', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja', 'Bragança']
+
+        // inserir no meio de um array
+        // splice
+        cidades.splice(3,0,"Braga","Guimarães");
+        console.log(cidades); // ['Leiria', 'Porto', 'Lisboa', 'Braga', 'Guimarães', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja', 'Bragança']
+
+        // remover elementos de um array
+        // remover do fim
+        let ultimo=cidades.pop(); // Bragança
+        console.log(cidades); // ['Leiria', 'Porto', 'Lisboa', 'Braga', 'Guimarães', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja']
+        // remover do início
+        let primeiro=cidades.shift(); // Leiria
+        console.log(cidades); // ['Porto', 'Lisboa', 'Braga', 'Guimarães', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja']
+        // remover no meio do array
+        let elementosRemovidos=cidades.splice(2,1); // ['Braga']
+        console.log(cidades); // ['Porto', 'Lisboa', 'Guimarães', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja']
+
+        // substituir elementos num array
+        // em qualquer posição
+        cidades[0]="Braga";
+        console.log(cidades); // ['Braga', 'Lisboa', 'Guimarães', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja']
+        // utilizando o splice
+        cidades.splice(2,1,"Porto");
+        console.log(cidades); // ['Braga', 'Lisboa', 'Porto', 'Viseu', 'Coimbra', 'Guarda', 'Faro', 'Évora', 'Beja']
+
+        // inverter um array
+        cidades.reverse();
+        console.log(cidades); // ['Beja', 'Évora', 'Faro', 'Guarda', 'Coimbra', 'Viseu', 'Porto', 'Lisboa', 'Braga']
+
+        // ordenar um array
+        cidades.sort();
+        console.log(cidades); // ['Beja', 'Braga', 'Coimbra', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu', 'Évora']
+        // Problema das palavras com acentos
+        cidades.sort((a,b)=>a.localeCompare(b)); // ['Beja', 'Braga', 'Coimbra', 'Évora', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu']
+        console.log(cidades);
+        // idealmente
+        cidades.sort((a,b)=>a.localeCompare(b, 'pt', { sensitivity: 'base' }));
+
+        // para evitar perder a ordem original de um array, vamos copiar o conteúdo do array e aplicar o sort ou o reverse a essa cópia
+        // CUIDADO COM A SEGUINTE ATRIBUIÇÃO
+        // let listaCidades=cidades;
+        // listaCidades.push("Santarém");
+        // console.log(listaCidades);  // ['Beja', 'Braga', 'Coimbra', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu', 'Évora', 'Santarém']
+        // console.log(cidades); //  ['Beja', 'Braga', 'Coimbra', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu', 'Évora', 'Santarém']
+
+        let listaCidades=cidades.slice(0);
+        console.log(listaCidades); // ['Beja', 'Braga', 'Coimbra', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu', 'Évora']
+
+        // ... - spread operator - converte o array numa lista de valores
+        let listaCidades2=[...cidades];
+        console.log(listaCidades2); // ['Beja', 'Braga', 'Coimbra', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu', 'Évora']
+
+        let listaCidades3=[];
+        for (let elemento of cidades) {
+            listaCidades3.push(elemento);
+        }
+        console.log(listaCidades3); // ['Beja', 'Braga', 'Coimbra', 'Faro', 'Guarda', 'Lisboa', 'Porto', 'Viseu', 'Évora']
+
+        let temperaturas = [12, 8, 23, 4, 31, 35, -4, -10, 17];
+        // calcular a temperatura máxima, a temperatura mínima e a temperatura média
+
+        let tempMax=temperaturas[0]; // -Infinity
+        let tempMin=temperaturas[0]; // +Infinity
+        let total=0;
+        for (let i=0; i<temperaturas.length; i++) {
+            if (temperaturas[i]>tempMax)
+                tempMax=temperaturas[i];
+            if (temperaturas[i]<tempMin) {
+                tempMin=temperaturas[i];
+            }
+            total+=temperaturas[i];
+        }
+        let tempMedia=total/temperaturas.length;
+        console.log(tempMax);
+        console.log(tempMin);
+        console.log(tempMedia);
+
+        // versão 2
+        // let tempMin2=Math.min(12, 8, 23, 4, 31, 35, -4, -10, 17);
+        let tempMin2=Math.min(...temperaturas);
+        let tempMax2=Math.max(...temperaturas);
+        let total2=0;
+        for (let i=0; i<temperaturas.length; i++) {
+            total2+=temperaturas[i];
+        }
+        let tempMedia2=total2/temperaturas.length;
+        console.log(tempMax2);
+        console.log(tempMin2);
+        console.log(tempMedia2);
+
+        // versão 3
+        // a ordenação por omissão utilizada no método sort é efectuada pelo código ASCII/Unicode
+        let tempOrdenadas=[...temperaturas].sort();
+        console.log(tempOrdenadas); // [-10, -4, 12, 17, 23, 31, 35, 4, 8]
+
+        let tempOrdenadas2=[...temperaturas].sort(function(a,b) {
+            if (a<b) {
+                return -1;
+            }
+            if (a>b) {
+                return 1;
+            }
+        });
+        console.log(tempOrdenadas2); // [-10, -4, 4, 8, 12, 17, 23, 31, 35]
+        // ordenar por ordem ascendente
+        let tempOrdenadas3=[...temperaturas].sort((a,b) => a-b);
+        console.log(tempOrdenadas3);
+        // ordenar por ordem descendente
+        // let tempOrdenadas3=[...temperaturas].sort((a,b) => b-a);
+        // let tempOrdenadas3=[...temperaturas].sort((a,b) => a-b).reverse();
+        let tempMin3=tempOrdenadas3[0];
+        let tempMax3=tempOrdenadas3[tempOrdenadas3.length-1];
+        let total3=0;
+        for (let i=0; i<temperaturas.length; i++) {
+            total2+=temperaturas[i];
+        }
+        let tempMedia3=total3/temperaturas.length;
+        console.log(tempMin3);
+        console.log(tempMax3);
+        console.log(tempMedia3);
+    </script>
+</body>
+</html>

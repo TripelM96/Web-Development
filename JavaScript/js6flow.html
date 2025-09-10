@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos de controlo de fluxo em JavaScript</title>
+</head>
+<body>
+    
+    <script>
+
+        // if (j=10) { // assignment operator - vai atribuir o valor 10 à variável j e vai retornar quase sempre true
+        // if (j==10) { // compara valores - ex: (3=="3") é verdadeiro - utiliza conversão de um dos tipos de dados
+        // if (j===10) { // compara valores e tipos de dados - ex: (3==="3") é falso
+
+        // !==, != - not equal
+
+        // falsy and truthy values
+        let total=9;
+        if (total===0) { // Retorna true ou false
+            // true
+            console.log("O valor é zero!");
+        } else {
+            // false
+            console.log("O valor é diferente de 0");
+        }
+
+        // if (!total) { // if (not false) <=> if (total===false)
+
+        // por omissão existem os valores booleanos, true e false
+        // em JavaScript há valores, que em condições (if) funcionam como false - chamam-se falsy values
+        // 0, false, null, undefined, NaN, -0, 0n, "" (string vazia) e '' (string vazia)
+
+        // Ciclos
+
+        for (let contador=1; contador<=10; contador++) {
+            console.log(contador);
+        }
+
+        let contador=1;
+        while(contador<=10) {
+            console.log(contador);
+            contador++;
+        }
+
+        let temperaturas = [12, 8, 23, 4, 31, 35, -4, -10, 17];
+        for (let i=0; i<temperaturas.length; i++) {
+            console.log(temperaturas[i]);
+        }
+
+        // alternativa
+        for (let temperatura of temperaturas) {
+            console.log(temperatura);
+        }
+
+        // alternativa
+        temperaturas.forEach(temperatura => console.log(temperatura));
+        temperaturas.forEach(function(temperatura) {
+            console.log(temperatura);
+        });
+
+        // múltiplas condições
+        let nome="Pedro";
+        if (nome==="Pedro") {
+            console.log("É o Pedro!");
+        } else if (nome==="António") {
+            console.log("É o António!");
+        } else if (nome==="Luís") {
+            console.log("É o Luís!");
+        } else {
+            console.log("Não é uma pessoa conhecida!");
+        }
+
+        // alternativa
+        switch(nome) {
+            case "Pedro":
+                console.log("É o Pedro!");
+                break;
+            case "António":
+                console.log("É o António!");
+                break;
+            case "Luís":
+                console.log("É o Luís!");
+                break;
+            default:
+                console.log("Não é uma pessoa conhecida!");
+                // break;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilizar JavaScript em páginas Web</title>
+</head>
+<body>
+    
+    <script>
+        // comentários
+        /*
+            comentário
+            de múltiplas
+            linhas
+        */
+        console.log("Hello, world");
+
+        // Variáveis
+        var nome="Pedro Remoaldo";
+        console.log(nome);
+
+        var total; // declarar a variável - valor = undefined
+        console.log(total); // undefined
+        total=20; // inicializar a variável - atribuir um valor
+        console.log(total); // 20
+
+        let cidade="Porto";
+        console.log(cidade); // Porto
+
+        // definir variáveis sem utilizar let ou var - define sempre uma variável global
+        cp="4100-100";
+        console.log(cp); // 4100-100
+
+        let morada="Rua das Tìlias";
+        morada=20;
+        console.log(morada); // 20
+
+        /*
+        Regras para atribuir nomes a identifiers (variáveis, funções, classes, ...)
+            - só podemos utilizar letras (minúsculas e maiúsculas), algarismos, e os símbolos $ e _
+            - não pode começar por um algarismo
+            - não pode ser uma palavra-chave reservada (keyword) do JavaScript - ex: não pode chamar-se 'switch'
+            - conselho - uilizar camel case - ex: totalArtigos
+            - conselho - não utilizar acentos (á, ô, ...) e ç
+            - conselho - utilizar nomes mnemónicos - que tenham significado associado - utilizar 'totalArtigos' em vez de 'tart'
+        */
+
+        let $_=30;
+        console.log($_); // 30
+
+        // Uncaught SyntaxError: Unexpected token 'switch'
+        // let switch="teste";
+
+        // Constantes
+        // "variável" à qual não se pode atribuir um novo variável após ter sido inicializada
+        // por tradição, utilizam-se letras maiúsculas no nome
+        
+        const PI=3.1415;
+        console.log(PI); // 3.1415
+        const outraConstante="Teste";
+
+        // se tentarmos alterar o valor
+        // Uncaught TypeError: Assignment to constant variable.
+        // PI=23;
+
+        // saber o tipo de dados de uma variável
+        // o JavaScript faz type inference
+        // tipos de dados implícitos em JavaScript: string, number, boolean, object
+
+        console.log(typeof PI); // number
+        console.log(typeof nome); // string
+    </script>
+</body>
+</html>
