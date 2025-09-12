@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Dadas duas strings, identificar os caracteres que não são comuns às duas strings.
+
+        let valor1 = "xyab";
+        let valor2 = "xzca";
+
+        let newString = "";
+
+        function stringCompare(string1, string2) {
+            for (let i = 0; i < string1.length; i++) {
+                if (!string2.includes(string1[i])) {
+                    newString += string1[i];
+                }
+            }
+                for (let j = 0; j < string2.length; j++) {
+                    if (!string1.includes(string2[j])) {
+                        newString += string2[j];
+                    }
+                }
+                return newString;
+            }
+        console.log(stringCompare(valor1, valor2));
+    </script>
+</body>
+
+</html>

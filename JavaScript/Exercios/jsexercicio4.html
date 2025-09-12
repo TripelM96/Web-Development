@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    
+    <script>
+    /*
+    Remover os números repetidos de um array.
+    Por exemplo, partindo do array,
+    
+    [12,6,3,12,8,6,5]
+    
+    o resultado é:
+    
+    [12,6,3,8,5]
+    
+    Poderá remover os números repetidos do próprio array ou criar um novo array com os valores não repetidos. 
+    */
+
+    const numbers=[12,6,3,12,8,6,5];
+    // numbers=[23,12]; // Uncaught TypeError: Assignment to constant variable.
+    numbers.push(34);
+    numbers.splice(7,1);
+    console.log(numbers); // [12, 6, 3, 12, 8, 6, 5]
+
+    function removeRepeatedValues(arrNumbers) {
+        let newArray=[];
+
+        for(let i=0; i < arrNumbers.length; i++)
+        {
+            if(!newArray.includes(arrNumbers[i]))
+            {
+                newArray.push(arrNumbers[i]);
+            }
+        }
+
+        return newArray;
+    }
+    const nonRepeatedValuesArray=removeRepeatedValues(numbers);
+    console.log(nonRepeatedValuesArray); // [12, 6, 3, 8, 5]
+
+    const withoutRepeatedValues=new Set(numbers);
+    console.log(withoutRepeatedValues); // Set(5) {12, 6, 3, 8, 5}
+    // converter o Set para um Array
+    const nonRepeatedValuesArray2=[...withoutRepeatedValues];
+    console.log(nonRepeatedValuesArray2); // [12, 6, 3, 8, 5]
+
+    const nonRepeatedValuesArray3=[...new Set(numbers)];
+    console.log(nonRepeatedValuesArray3); // [12, 6, 3, 8, 5]
+
+    // o tipo de dados Set possui a sua própria lista de métodos
+    let lista=new Set();
+    lista.add("Pedro");
+    console.log(lista); // Set(1) {'Pedro'}
+    lista.add("Luísa");
+    console.log(lista); // Set(1) {'Pedro', 'Luísa'}
+    lista.add("António");
+    lista.delete("Luísa");
+    console.log(lista); // Set(2) {'Pedro', 'António'}
+    lista.add("António"); // Não adiciona valores repetidos
+    console.log(lista); // Set(2) {'Pedro', 'António'}
+    console.log("Número de elementos:"+lista.size); // 2
+    if (lista.has('António')) {
+        lista.delete("António");
+    }
+    console.log(lista); // Set(1) {'Pedro'}
+    // limpar o Set - remover todos os elementos
+    lista.clear();
+    console.log(lista); // Set(0) {size: 0}
+    
+    // aplicando o princípio do SRI - Single-Responsibility Principle, criamos 2 funções em vez de colocar tudo na mesma função
+
+    // valida se um elemento já existe num array
+    function checkRepeatedValueInArray(arrayList,newElement) {
+        if (arrayList.includes(newElement)) {
+            return true;
+        }
+        return false;
+    }
+
+    let nomes=[];
+    // criar uma função que evita adicionar um elemento repetido a um array
+    function addElementToArray(arrayList,newElement) {
+        if (!checkRepeatedValueInArray(arrayList,newElement)) {
+            arrayList.push(newElement);
+        }
+    }
+    addElementToArray(nomes, "Pedro");
+    console.log(nomes); // ['Pedro']
+    addElementToArray(nomes, "Luísa");
+    console.log(nomes); // ['Pedro', 'Luísa']
+    addElementToArray(nomes, "Luísa");
+    console.log(nomes); // ['Pedro', 'Luísa']
+
+    </script>
+</body>
+</html>

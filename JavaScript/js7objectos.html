@@ -144,6 +144,74 @@
                 nome: pessoa.nome.toUpperCase()
             }));
         console.log(pessoasBraga4);
+
+        
+        let pessoa2 = {
+            nome: "Pedro Remoaldo",
+            cidade: "Porto",
+            pais: "Portugal"
+        }
+        // adicionar uma nova propriedade ao objecto "pessoa2"
+        pessoa2.cp="4100-200";
+        console.log(pessoa2); // { nome: "Pedro Remoaldo", cidade: "Porto", pais: "Portugal", cp: "4100-200" }
+
+        // iterar/percorrer as propriedades de um objecto
+        for (let propriedade in pessoa2) {
+            console.log(`${propriedade} : ${pessoa2[propriedade]}`);
+            /* 
+                nome : Pedro Remoaldo
+                cidade : Porto
+                pais : Portugal
+                cp : 4100-200 
+            */
+        }
+
+        console.log(Object.entries(pessoa2));
+        /* 
+        [
+            ['nome', 'Pedro Remoaldo']
+            ['cidade', 'Porto']
+            ['pais', 'Portugal']
+            ['cp', '4100-200']
+        ]
+        */
+
+        // for (let elemento of Object.entries(pessoa2)) {
+        //     let propriedade=elemento[0];
+        //     let valor=elemento[1];
+        // utilização de destructuring
+        for (let [propriedade,valor] of Object.entries(pessoa2)) {
+            console.log(`${propriedade} : ${valor}`);
+        }
+
+        // testar a existência de uma propriedade num objecto
+        if ('cp' in pessoa2) {
+            console.log("Existe a propriedade 'cp' no objecto 'pessoa2'.")
+        }
+        if ('lixo' in pessoa2) {
+            console.log("Existe a propriedade 'lixo' no objecto 'pessoa2'.")
+        } else {
+            console.log("NÃO existe a propriedade 'lixo' no objecto 'pessoa2'.")
+        }
+
+        // eliminar propriedades
+        delete pessoa2.cp;
+        console.log(pessoa2); // { nome: "Pedro Remoaldo", cidade: "Porto", pais: "Portugal" }
+
+        // clonar/copiar um objecto
+        let pessoa3={ ...pessoa2 };
+        let pessoa4={ ...pessoa2, idade: 23 };
+        // sintaxe antiga
+        let pessoa5=Object.assign({}, pessoa2);
+
+        // built-in objects
+        /*
+            String, Number, Array, Boolean, Object, Date, Function, RegExp
+            let nome = new String("Pedro Remoaldo");
+
+            Math é um objecto especial/static (helper class / utility class) que não pode ser instanciado
+        */
+
     </script>
 </body>
 </html>

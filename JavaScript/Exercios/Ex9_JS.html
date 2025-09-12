@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex9_JS</title>
 </head>
+
 <body>
     <script>
+        let limite = 30;
 
+        for (let i = 2; i <= limite; i++) {
+            let primo = true;
+
+            for (let j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    primo = false;
+                    break; // se achou um divisor, já sabemos que não é primo
+                }
+            }
+
+            if (primo) {
+                console.log(i + " é primo");
+            } else {
+                console.log(i + " não é primo");
+            }
+        }
     </script>
 </body>
+
 </html>
